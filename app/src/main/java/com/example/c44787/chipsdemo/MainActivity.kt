@@ -23,14 +23,19 @@ class MainActivity : AppCompatActivity() {
             hideKeyboard()
         }
     }
-    
+
     private fun addChipText(text: String) {
         val chip = layoutInflater.inflate(R.layout.chip_group_item, chip_group, false) as Chip
         chip.chipText = text
         chip_group.addView(chip)
+
+        chip.setOnCloseIconClickListener {
+            // TODO: handle index
+            chip_group.removeView(chip)
+        }
     }
 
-    fun hideKeyboard() {
+    private fun hideKeyboard() {
         currentFocus?.let {
             val inputManager = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
             inputManager.hideSoftInputFromWindow(it.windowToken, InputMethodManager.HIDE_NOT_ALWAYS)
