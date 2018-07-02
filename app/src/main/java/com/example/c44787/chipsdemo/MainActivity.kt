@@ -27,6 +27,11 @@ class MainActivity : AppCompatActivity() {
     private fun addChipText(text: String) {
         val chip = layoutInflater.inflate(R.layout.chip_group_item, chip_group, false) as Chip
         chip.chipText = text
+//        chip.setChipStrokeColorResource(android.R.color.holo_red_dark)
+//        chip.chipStrokeWidth = 2.0f
+//        chip.setCloseIconTintResource(android.R.color.holo_green_dark)
+//        chip.setChipBackgroundColorResource(android.R.color.holo_blue_bright)
+
         chip_group.addView(chip)
 
         chip.setOnCloseIconClickListener {
